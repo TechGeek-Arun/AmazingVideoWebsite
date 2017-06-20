@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Amazing video library</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {margin: 0;}
+
+.topright {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    font-size: 18px;
+}
+
+h2{
+color: blue;
+}
+
+hr{
+ background-color: #9900ff;
+}
+
+.heading{
+    text-align: center;
+    color: black;
+    margin: 0;
+    padding: 0;
+    background-color: #0099ff;
+}
+
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #99ccff;
+}
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.topnav li a:hover:not(.active) {background-color: #1e90ff;}
+
+ul.topnav li a.active {background-color: #1e90ff;}
+
+
+
+@media screen and (max-width: 600px){
+    ul.topnav li.right, 
+    ul.topnav li {float: none;}
+}
+
+
+
+.wrapper{
+	margin: 0 auto; 
+    display:table;
+    width:auto;
+    position:center;
+    width:50%;
+}
+
+.playpause {
+    background-image:url(https://www.slatecube.com/images/play-btn.png);
+    background-repeat:no-repeat;
+    width:50%;
+    height:50%;
+    position:absolute;
+    left:0%;
+    right:0%;
+    top:0%;
+    bottom:0%;
+    margin:auto;
+    background-size:contain;
+    background-position: center;
+}
+
+
+.form-style-1 {
+    margin:10px auto;
+    max-width: 400px;
+    padding: 20px 12px 10px 20px;
+    font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+.form-style-1 li {
+    padding: 0;
+    display: block;
+    list-style: none;
+    margin: 10px 0 0 0;
+}
+.form-style-1 label{
+    margin:0 0 3px 0;
+    padding:0px;
+    display:block;
+    font-weight: bold;
+}
+.form-style-1 input[type=text], 
+.form-style-1 input[type=date],
+.form-style-1 input[type=datetime],
+.form-style-1 input[type=number],
+.form-style-1 input[type=search],
+.form-style-1 input[type=time],
+.form-style-1 input[type=url],
+.form-style-1 input[type=email],
+textarea, 
+select{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border:1px solid #BEBEBE;
+    padding: 7px;
+    margin:0px;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;  
+}
+.form-style-1 input[type=text]:focus, 
+.form-style-1 input[type=date]:focus,
+.form-style-1 input[type=datetime]:focus,
+.form-style-1 input[type=number]:focus,
+.form-style-1 input[type=search]:focus,
+.form-style-1 input[type=time]:focus,
+.form-style-1 input[type=url]:focus,
+.form-style-1 input[type=email]:focus,
+.form-style-1 textarea:focus, 
+.form-style-1 select:focus{
+    -moz-box-shadow: 0 0 8px #88D5E9;
+    -webkit-box-shadow: 0 0 8px #88D5E9;
+    box-shadow: 0 0 8px #88D5E9;
+    border: 1px solid #88D5E9;
+}
+.form-style-1 .field-divided{
+    width: 49%;
+}
+
+.form-style-1 .field-long{
+    width: 100%;
+}
+.form-style-1 .field-select{
+    width: 100%;
+}
+.form-style-1 .field-textarea{
+    height: 100px;
+}
+.form-style-1 input[type=submit], .form-style-1 input[type=button]{
+    background: #4B99AD;
+    padding: 8px 15px 8px 15px;
+    border: none;
+    color: #fff;
+}
+.form-style-1 input[type=submit]:hover, .form-style-1 input[type=button]:hover{
+    background: #4691A4;
+    box-shadow:none;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+}
+.form-style-1 .required{
+    color:red;
+}
+</style>
+<script>
+
+    //Functon to show divs from the nav menu
+    function show_div_home(toShow)
+    { document.getElementById("date").innerHTML = Date();
+
+        var show = document.getElementById(toShow);
+        var hide= document.getElementById("video");
+	var hide1= document.getElementById("about");
+	var hide2= document.getElementById("choice");
+        show.style.display = "";
+	hide.style.display = "";
+	hide1.style.display = "none";
+	hide2.style.display = "";
+    }
+function show_div_video(toShow)
+    {
+        var show = document.getElementById(toShow);
+	var hide= document.getElementById("home");
+	var hide1= document.getElementById("about");
+	var hide2= document.getElementById("choice");
+        show.style.display = "";
+	hide.style.display = "none";
+	hide1.style.display = "none";
+	hide2.style.display = "none";
+
+    }
+function show_div_choice(toShow)
+    {
+        var show = document.getElementById(toShow);
+	var hide= document.getElementById("video");
+	var hide1= document.getElementById("home");
+	var hide2= document.getElementById("about");
+        show.style.display = "";
+	hide.style.display = "none";
+	hide1.style.display = "none";
+	hide2.style.display = "none";
+
+    }
+function show_div_about(toShow)
+    {
+        var show = document.getElementById(toShow);
+	var hide2= document.getElementById("choice");
+	var hide= document.getElementById("video");
+	var hide1= document.getElementById("home");
+        show.style.display = "";
+	hide.style.display = "none";
+	hide1.style.display = "none";
+	hide2.style.display = "none";
+    }
+
+
+//Functions for video play
+function playVid() { 
+var vid = document.getElementById("play");
+//var hide = document.getElementById("image"); 
+ //hide.style.display = "none";
+
+    vid.play(); 
+
+} 
+
+//Functions for comment section
+function browserCheck() {
+  if (typeof(localStorage) == 'undefined' ) {
+    alert('Your browser does not support HTML5 localStorage. Try upgrading.');
+  }
+}
+
+function addComment(){
+    var values = new Array();
+	var newDate = new Date();
+    var itemId = newDate.getTime();
+   // var itemId = newDate.getTime();
+    
+	values.push(document.forms["todoForm"]["firstname"].value);
+	values.push(document.forms["todoForm"]["lastname"].value);
+	values.push(document.forms["todoForm"]["email"].value);
+	values.push(document.forms["todoForm"]["cityfinal"].value);
+	values.push(document.forms["todoForm"]["age"].value);
+    values.push(document.forms["todoForm"]["Comment"].value);
+    
+  
+    try {
+        localStorage.setItem(itemId, values.join(';'));
+    } catch (e) {
+        if (e == QUOTA_EXCEEDED_ERR) {
+            alert('Quota exceeded!');
+        }
+    }
+    getComment();
+}
+
+function getComment(){
+    var i = 0;
+    var currentTaskInHTML = "";
+    var allTasksInHTML = "";
+    if (localStorage.length == 0)
+    {
+        document.getElementById('theCommentList').innerHTML = "No Choices yet!!!!";
+    }
+    else
+    {
+        for (i=0; i<localStorage.length; i++)
+        {
+            var itemKey = localStorage.key(i);
+            var values = localStorage.getItem(itemKey);
+            values = values.split(";");
+						   
+			currentTaskInHTML = '<hr><h1>'+values[0]+' '+ values[1]+'</h1><h6><i>'+values[4]+' years Old from '+ values[3]+
+			'</i> -- '+values[2]+'</h6><p>'+values[5]+'</p><h6>[delete]</h6><input type=\"checkbox\" name=\"Comment\" value=\"' + itemKey + '\"onClick=\"deleteComment(' + itemKey + ')\" /><hr>';
+			
+            allTasksInHTML += currentTaskInHTML;
+        }
+        document.getElementById('theCommentList').innerHTML = allTasksInHTML;
+    }
+}
+
+function deleteComment(key){
+    localStorage.removeItem(key);
+    getComment();
+}
+
+//function for alphabets check
+function onlyAlphabets(e, t) {
+            try {
+                if (window.event) {
+                    var charCode = window.event.keyCode;
+                }
+                else if (e) {
+                    var charCode = e.which;
+                }
+                else { return true; }
+                if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))
+                    return true;
+                else
+                    return false;
+            }
+            catch (err) {
+                alert(err.Description);
+            }
+        }
+</script>
+</head>
+<body onLoad="browserCheck();getComment();return show_div_home('home');addComment();">
+
+<h1 class="heading">Amazing video library</h1>
+<i id="date" class="topright"><i></i></i>
+
+<ul class="topnav">
+  <li class="home" selected><a href="#home" onclick="return show_div_home('home');" >Home</a></li>
+  <li class="video"><a href="#video" onclick="return show_div_video('video');" >Video</a></li>
+  <li class="choice"><a href="#choice" onclick="return show_div_choice('choice');">Choice</a></li>
+  <li class="about"><a href="#about" onclick="return show_div_about('about');"  >About</a></li>
+</ul>
+
+<div id="home" style="padding:0 16px;display: none;">
+  <h2>HOME</h2><hr size="5">
+  <p><h3>"Amazing Online Video Library"</h3>
+	The web page is designed into 2 sections.</p>
+<p>	<i><h6>Section 1 </i></h6>on top will contain a. Heading b. hyperlinks/buttons for navigation like home, about us, career etc., Click on these links/buttons to display the appr. Web pages. 
+</p>
+<p><i><h6>Section 2 </i></h6>will further be divided into 2 sections.</p>
+<p>
+<h6><i>First Section:</i></h6>
+Will have a view-area where people can play the video of the week. They would be given only the play button. No other controls would be available.
+
+  <h6><i>Second Section:</i></h6>
+  Will contain a form where the users can submit their choice for the next week's video. The form will contain inputs for 
+  receiving- User's first name ,last name , email ID etc........
+</p>
+
+</div>
+
+<div id="video" style="padding:0 16px;display: none;">
+  <h2>VIDEO</h2><hr size="5">
+ <div class="wrapper" onclick="playVid()" >
+    <video class="video" id="play">
+        <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4" />
+    </video>
+<!--<div class="playpause" id="ïmage"></div>-->
+</div>
+</div>
+
+<div id="choice" style="padding:0 16px;display: none;">
+  <h2>CHOICE</h2><hr size="5">
+ 
+ <form name="todoForm" onSubmit='addComment();'>
+		<ul class="form-style-1">
+		<li><label>Full Name <span class="required">*</span></label>
+		<input type="text" size="50" name="firstname" onkeydown="return onlyAlphabets(event,this);" placeholder="First name" value="" class="field-divided" required>
+		&nbsp;
+		<input type="text" size="50" name="lastname" onkeydown="return onlyAlphabets(event,this);" placeholder="Last name" value="" class="field-divided" >
+		
+		</li>
+		
+        <li>
+        <label>Email <span class="required">*</span></label>
+        <input type="email" size="50" name="email" placeholder="Enter valid email id" value="" class="field-long" required>
+    </li>	
+	
+	<li>
+        <label>Select your City</label>
+        <input type="text" list="city" id="cityfinal" class="field-select">
+		<datalist id="city">
+                <option value="Delhi">Delhi</option>
+                <option value="Mumbai" selected>Mumbai</option>
+                <option value="Kolkata">Kolkata</option>
+				<option value="Chennai">Chennai</option>
+				<option value="Bangalore">Bangalore</option>
+				<option value="Hyderabad">Hyderabad</option>
+		</datalist>
+            </input>
+    </li>
+	
+	<li>
+	<label>Your age</label>
+	 <input type="number" name="age" placeholder="Enter your age "  min="18" max="120" step="1" value="21" required="true" >
+	</li>
+	
+	<li>
+        <label>Your video choice for next week <span class="required">*</span></label>
+		<textarea type="text" name="Comment" placeholder="Yours choice" value="" id="field5" class="field-long field-textarea" required></textarea>
+		<!--<textarea name="field5" id="field5" class="field-long field-textarea"></textarea>-->
+    </li>
+	
+	<li>
+        <input type="submit" value="Yours Choice" />
+    </li>
+</ul>
+</form>
+
+<h2>OTHERS CHOICES</h2>
+    <p id="theCommentList">No Choices yet!!!!</p>
+	
+</div>
+
+<div id="about" style="padding:0 16px;display: none;">
+  <h2>ABOUT</h2><hr size="5">
+  <p>This is the Wipro topgear project to create an<h3>"Amazing Online Video Library"</h3>web page is designed into 2 sections.<i>Section 1 </i>on top will contain a. Heading b. hyperlinks/buttons for navigation like home, about us, career etc., Click on these links/buttons to display the appr. Web pages.<i>Section 2 </i>will further be divided into 2 sections.<i>First Section:</i>Will have a view-area where people can play the video of the week.They would be given only the play button. No other controls would be available.<i>Second Section:</i> Will contain a form where the users can submit their choice for the next week's video.The form will contain inputs for receiving- User's first name ,last name , email ID etc........
+</p>
+</div>
+
+</body>
+</html>
